@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>Game</title>
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <style>
+        @font-face {
+            font-family: 'Inconsolata';
+            src: url('fonts/InconsolataRegular.ttf');
+        }
+
+        html{
+            align-content: center;
+        }
+
+        body {
+            margin: 0;
+            background-color: rgb(25, 25, 25);
+            text-align: center;
+        }
+
+        canvas {
+            height: 100%;
+            margin-top: 15px;
+            border: 2px solid #e87474;
+            right: 20px;
+            left: 50%;
+        }
+
+
+        #wrapper {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #cacheless {
+            display: inline-block;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #cacheless-button,
+        #cacheless-info {
+            font: 24px Inconsolata;
+            margin: 0;
+            padding: 15px 0;
+            display: inline-block;
+            background-color: #e87474;
+            color: white;
+            cursor: pointer;
+        }
+
+        #cacheless-button:hover,
+        #cacheless-info:hover {
+            background-color: white;
+            color:#e87474;
+        }
+
+        #cacheless-button{
+            width: 230px;
+        }
+
+        #cacheless-info {
+            width: 50px;
+        }
+
+        #stats{
+            margin-left: 15px;
+        }
+
+        /*#game{*/
+            /*background-color: green;*/
+        /*}*/
+    </style>
+
+    <link rel="icon" href="/favicon.png?v=2" />
+</head>
+
+<body>
+
+    <div id="game"></div>
+    <div id="wrapper">
+        <div id="cacheless">
+            <div id="cacheless-button"  onclick="location.reload(true);">force latest ver.</div><div id="cacheless-info"    onclick="alert('Reloads the page without using cache.')"><i class="fa fa-question-circle"></i></div>
+        </div>
+    </div>
+    <script src="js/three.js"></script>
+    <script src="js/Projector.js"></script>
+    <script src="js/ColladaLoader2.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/loading.js?v=2"></script>
+    <script src="js/Detector.js"></script>
+    <script src="js/socket.io.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/tween.js"></script>
+    <script src="js/00_initialization.js"></script>
+    <script src="js/01_usefulfunctions.js"></script>
+    <script src="js/02_maptiles.js"></script>
+    <script src="js/03_maploader.js"></script>
+    <script src="js/04_server.js"></script>
+    <script src="js/stats.min.js"></script>
+    <script src="js/main.js"></script>
+    <!--<script src="js/stream-check.js"></script>-->
+</body>
+
+</html>

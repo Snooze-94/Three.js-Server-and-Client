@@ -1,0 +1,4 @@
+function player() {
+	function update() {
+	}
+}
