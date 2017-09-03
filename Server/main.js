@@ -73,28 +73,27 @@ wss.on('connection', function connection(ws) {
 
 	console.log(ws);
 
-	// var ip = ws._socket.remoteAddress;
+	var ip = ws._socket.remoteAddress;
 
-	// console.log('Client connected from ' + ip.substr(ip.lastIndexOf(':') + 1));
+	console.log('Client connected from ' + ip.substr(ip.lastIndexOf(':') + 1));
 
-	// var c_inst = require('./client.js');
-	// var thisClient = new c_inst();
-	// clients.push(thisClient);
-	// thisClient.ws = ws;
+	var c_inst = require('./client.js');
+	var thisClient = new c_inst();
+	clients.push(thisClient);
+	thisClient.ws = ws;
 
 	thisClient.initiate();
 
 	ws.on('open', function () {
-		// thisClient.open();
+		thisClient.open();
 	});
 
 	ws.on('message', function (data) {
-		console.log(data);
-		// thisClient.message(data);
+		thisClient.message(data);
 	});
 
 	ws.on('close', function () {
-		// thisClient.close();
+		thisClient.close();
 	});
 
 });
