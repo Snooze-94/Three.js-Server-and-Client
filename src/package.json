@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.6.6",
+    "fs": "0.0.1-security",
+    "safe-buffer": "^5.1.1",
+    "serve-static": "^1.13.2",
+    "shortid": "^2.2.8",
+    "ultron": "^1.1.1",
+    "ws": "^5.1.1"
+  }
+}

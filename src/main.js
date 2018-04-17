@@ -1,6 +1,13 @@
-const port = 16101;
+const WEB_SERVER_PORT = 8080;
+const GAME_SERVER_PORT = 16101;
 const fs = require('fs');
 const WebSocket = require('ws');
+var connect = require('connect');
+var serveStatic = require('serve-static');
+
+connect().use(serveStatic(__dirname + "/client/")).listen(WEB_SERVER_PORT, function(){
+    console.log('Server running on 8080...');
+});
 
 //LOAD INIT FILES
 var init_files = fs.readdirSync(__dirname + "/Initializers");
@@ -14,14 +21,14 @@ console.log('Loading maps...');
 
 maps = {};
 
-var map_files = fs.readdirSync('../../mrdrifzzts.com/game/js/maps');
+var map_files = fs.readdirSync('client/js/maps');
 map_files.forEach(function (mapFile) {
 
 	var mapName = mapFile.substr(0,mapFile.indexOf('.'));
 
 	process.stdout.write('Loading map ' + mapName + '...');
 
-	var mapString = fs.readFileSync('../../mrdrifzzts.com/game/js/maps/' + mapFile);
+	var mapString = fs.readFileSync('client/js/maps/' + mapFile);
 	var mapJSON = JSON.parse(mapString);
 
 	process.stdout.write('.');
@@ -65,7 +72,7 @@ map_files.forEach(function (mapFile) {
 console.log('All maps loaded.');
 
 //START SERVER
-const wss = new WebSocket.Server({ port: port });
+const wss = new WebSocket.Server({ port: GAME_SERVER_PORT });
 
 var clients = [];
 
@@ -98,4 +105,4 @@ wss.on('connection', function connection(ws) {
 
 });
 
-console.log('Running on port: ' + port);
+console.log('Running on port: ' + WEB_SERVER_PORT);
